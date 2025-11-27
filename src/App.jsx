@@ -173,6 +173,46 @@ const StarryBackground = () => {
   return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0" />
 }
 
+const AuroraGlow = () => (
+  <div className="pointer-events-none absolute inset-0 overflow-hidden">
+    <div className="absolute -left-20 -top-12 w-[70vw] h-[70vw] bg-[radial-gradient(circle_at_30%_30%,rgba(16,185,129,0.16),transparent_55%)] animate-aurora"></div>
+    <div className="absolute -right-24 bottom-[-20%] w-[55vw] h-[55vw] bg-[radial-gradient(circle_at_60%_60%,rgba(239,68,68,0.18),transparent_60%)] animate-aurora-delay"></div>
+  </div>
+)
+
+const OrbitalRings = () => (
+  <div className="absolute inset-0 pointer-events-none flex items-center justify-center">
+    <div className="w-[28rem] h-[28rem] border border-red-900/30 rounded-full animate-spin-slow"></div>
+    <div className="w-[34rem] h-[34rem] border border-emerald-900/25 rounded-full animate-spin-slower"></div>
+    <div className="w-[40rem] h-[40rem] border border-white/5 rounded-full animate-spin-slow"></div>
+  </div>
+)
+
+const MotionTicker = () => {
+  const items = [
+    'Zero-downtime scale protocol',
+    'Neural architecture governance',
+    'International collective online',
+    'Polymath standard engaged',
+    'Executive engagement only',
+    'Closed-loop experimentation'
+  ]
+
+  return (
+    <div className="ticker">
+      <div className="ticker__track">
+        {[...items, ...items].map((item, idx) => (
+          <span key={idx} className="ticker__item">
+            <span className="ticker__dot" />
+            <span>{item}</span>
+            <span className="ticker__accent">//</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  )
+}
+
 const RomanLogo = () => (
   <svg viewBox="0 0 100 100" className="w-8 h-8 fill-current">
     <rect x="10" y="45" width="20" height="55" />
@@ -450,9 +490,16 @@ const App = () => {
         </div>
       </nav>
 
+      {/* --- LIVE TICKER --- */}
+      <div className="fixed top-[68px] inset-x-0 z-40">
+        <MotionTicker />
+      </div>
+
       {/* --- HERO SECTION: BRUTALIST --- */}
-      <header className="relative min-h-screen flex flex-col justify-center pt-20 px-6 overflow-hidden">
-        <div className="absolute top-0 right-0 w-[60vw] h-[60vw] bg-emerald-600/5 rounded-full blur-[150px] pointer-events-none translate-x-1/3 -translate-y-1/4"></div>
+      <header className="relative min-h-screen flex flex-col justify-center pt-24 px-6 overflow-hidden">
+        <AuroraGlow />
+        <div className="absolute top-0 right-0 w-[60vw] h-[60vw] bg-emerald-600/10 rounded-full blur-[180px] pointer-events-none translate-x-1/3 -translate-y-1/4"></div>
+        <OrbitalRings />
         
         <div className="max-w-7xl w-full mx-auto relative z-10 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
            
@@ -464,10 +511,9 @@ const App = () => {
                  </span>
               </div>
 
-              <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl leading-[0.85] text-zinc-900 dark:text-zinc-100 uppercase mb-8">
+              <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl leading-[0.85] text-zinc-900 dark:text-zinc-100 uppercase mb-8 animate-glow">
                  {t.hero.title} <br/>
-                 {/* Main Title Highlight: Emerald (Success) - Changed font-light to font-black for maximum boldness */}
-                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 to-emerald-500 dark:from-emerald-400 dark:to-emerald-600 italic font-black ml-4">
+                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 to-emerald-500 dark:from-emerald-400 dark:to-emerald-600 italic font-black ml-4 drop-shadow-[0_0_25px_rgba(16,185,129,0.35)]">
                     {t.hero.titleHigh}
                  </span>
               </h1>
@@ -476,10 +522,21 @@ const App = () => {
                  <p className="font-mono text-sm md:text-base text-zinc-600 dark:text-zinc-400 max-w-md leading-relaxed mb-8">
                     // {t.hero.subtitle}
                  </p>
-                 <a href="#oracle" className="inline-flex items-center gap-4 px-8 py-4 bg-red-700 dark:bg-red-600 text-white font-mono text-xs font-bold uppercase tracking-widest hover:bg-red-800 dark:hover:bg-red-500 transition-all group shadow-[0_0_20px_rgba(220,38,38,0.3)]">
+                 <a href="#oracle" className="inline-flex items-center gap-4 px-8 py-4 bg-red-700 dark:bg-red-600 text-white font-mono text-xs font-bold uppercase tracking-widest hover:bg-red-800 dark:hover:bg-red-500 transition-all group shadow-[0_0_20px_rgba(220,38,38,0.3)] relative overflow-hidden">
+                    <span className="absolute inset-0 bg-gradient-to-r from-white/5 via-transparent to-white/5 opacity-0 group-hover:opacity-100 transition-opacity" />
                     {t.hero.cta}
-                    <MoveRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    <MoveRight size={14} className="group-hover:translate-x-1 transition-transform animate-float" />
                  </a>
+                 <div className="flex flex-wrap gap-4 mt-6 text-[10px] font-mono uppercase tracking-[0.25em] text-zinc-500">
+                    <div className="flex items-center gap-2 px-3 py-2 border border-zinc-800/70 bg-zinc-900/40 backdrop-blur-sm animate-float-slower">
+                      <Sparkles size={12} className="text-emerald-500" />
+                      <span>Precision Ops</span>
+                    </div>
+                    <div className="flex items-center gap-2 px-3 py-2 border border-zinc-800/70 bg-zinc-900/40 backdrop-blur-sm animate-float-delay">
+                      <LayoutGrid size={12} className="text-red-500" />
+                      <span>Systems DNA</span>
+                    </div>
+                 </div>
               </div>
            </div>
 
@@ -507,7 +564,8 @@ const App = () => {
 
       {/* --- RECRUITMENT NOTICE (THE NEXUS REQUIREMENT) --- */}
       <section className="py-20 px-6 bg-[#050505] border-t border-zinc-800 relative overflow-hidden">
-         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(220,38,38,0.03)_0%,_transparent_70%)]"></div>
+         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(220,38,38,0.04)_0%,_transparent_70%)]"></div>
+         <div className="absolute inset-0 gradient-beam opacity-40"></div>
          <div className="max-w-5xl mx-auto text-center relative z-10">
             <div className="inline-flex items-center gap-2 text-red-500 border border-red-900/50 bg-red-900/10 px-4 py-1 rounded-full mb-6">
                <AlertTriangle size={12} />
@@ -592,14 +650,19 @@ const App = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-zinc-800 dark:border-zinc-300">
                {t.services.items.map((item, idx) => (
-                  <div key={idx} className="group border-r border-b border-zinc-800 dark:border-zinc-300 p-8 md:p-12 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-all duration-300 relative">
+                  <div key={idx} className="group border-r border-b border-zinc-800 dark:border-zinc-300 p-8 md:p-12 hover:bg-zinc-800 dark:hover:bg-zinc-200 transition-all duration-500 relative overflow-hidden hover:-translate-y-1 hover:shadow-[0_25px_45px_rgba(0,0,0,0.35)]">
+                     <div className="absolute inset-0 opacity-0 group-hover:opacity-40 gradient-beam"></div>
                      <div className="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity">
                         <Asterisk size={24} className="text-red-500 dark:text-red-600 animate-spin-slow" />
                      </div>
-                     <div className="h-48 flex flex-col justify-between">
-                        <div>
+                     <div className="absolute -inset-x-12 top-0 h-[1px] bg-gradient-to-r from-transparent via-emerald-500/30 to-transparent"></div>
+                     <div className="h-48 flex flex-col justify-between relative z-10">
+                        <div className="space-y-1">
                            <h3 className="font-serif text-3xl md:text-4xl uppercase mb-2">{item.title}</h3>
-                           <p className="font-mono text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-wider">{item.desc}</p>
+                           <p className="font-mono text-xs text-zinc-400 dark:text-zinc-600 uppercase tracking-wider flex items-center gap-2">
+                              <span className="inline-block w-2 h-2 rounded-full bg-emerald-500/70 animate-pulse"></span>
+                              {item.desc}
+                           </p>
                         </div>
                         <div className="pt-8 border-t border-zinc-800 dark:border-zinc-300 mt-auto">
                            <p className="font-mono text-sm text-red-400 dark:text-red-700">
@@ -623,7 +686,9 @@ const App = () => {
             <StarryBackground />
          </div>
          <div className="relative z-20 max-w-6xl w-full mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
-            <div className="md:col-span-5 bg-black border border-zinc-800 p-8 shadow-2xl relative">
+            <div className="md:col-span-5 bg-black border border-zinc-800 p-8 shadow-2xl relative overflow-hidden">
+               <div className="absolute inset-0 opacity-20 gradient-beam"></div>
+               <div className="absolute -left-6 top-6 w-24 h-24 border border-red-700/40 rounded-full pulse-ring"></div>
                <div className="absolute top-0 left-0 w-full h-1 bg-red-600"></div>
                <div className="flex items-center gap-2 mb-8 text-zinc-500 font-mono text-xs uppercase">
                   <Terminal size={14} /> <span>/usr/bin/oracle_v2</span>
@@ -644,8 +709,9 @@ const App = () => {
                   </button>
                </form>
             </div>
-            <div className="md:col-span-7 bg-zinc-900/50 backdrop-blur-sm border-l border-zinc-700 p-8 flex flex-col justify-center min-h-[400px] relative">
+            <div className="md:col-span-7 bg-zinc-900/50 backdrop-blur-sm border-l border-zinc-700 p-8 flex flex-col justify-center min-h-[400px] relative overflow-hidden">
                <div className="absolute inset-0 pointer-events-none opacity-5 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_4px,6px_100%]"></div>
+               <div className="absolute inset-y-0 left-0 w-[35%] bg-gradient-to-r from-red-600/5 via-transparent to-transparent blur-3xl"></div>
                {!strategy && !loading && (
                   <div className="text-center">
                      <div className="w-16 h-16 border border-zinc-700 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse"><div className="w-2 h-2 bg-red-600"></div></div>
@@ -741,7 +807,7 @@ const App = () => {
             </div>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-zinc-300 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-800">
                {CLIENTS.map((client, idx) => (
-                  <div key={idx} className="bg-zinc-100 dark:bg-[#050505] p-8 aspect-square flex flex-col justify-between hover:bg-white dark:hover:bg-zinc-900 transition-colors group cursor-crosshair">
+                  <div key={idx} className="bg-zinc-100 dark:bg-[#050505] p-8 aspect-square flex flex-col justify-between hover:bg-white dark:hover:bg-zinc-900 transition-all duration-500 group cursor-crosshair hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(0,0,0,0.35)]">
                      <div className="flex justify-between items-start">
                         <span className="font-mono text-xs text-zinc-400">0{idx+1}</span>
                         <ArrowUpRight size={14} className="text-zinc-300 group-hover:text-red-600 transition-colors" />
