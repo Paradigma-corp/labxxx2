@@ -378,38 +378,38 @@ const App = () => {
             {/* --- JOIN TEAM MODAL (THE IMPOSSIBLE PROFILE) --- */}
             {joinModalOpen && (
               <div className="p-10 bg-red-950/10 border-l-4 border-red-600">
-                <div className="flex items-center gap-2 text-red-600 font-mono text-xs uppercase tracking-widest mb-8 animate-pulse">
-                  <Zap size={14} /> <span>Recruitment_Protocol: ELITE_TIER</span>
+                <div className="flex items-center gap-2 text-red-600 font-mono text-xs uppercase tracking-widest mb-8">
+                  <Zap size={14} /> <span>Executive_Recruitment_Protocol</span>
                 </div>
-                <h2 className="font-serif text-5xl text-white mb-2">SEEKING: ANOMALIES</h2>
-                <p className="font-mono text-sm text-zinc-300 mb-8 border-b border-red-900 pb-4">
-                  We don't hire employees. We assimilate intellects.
+                <h2 className="font-serif text-4xl md:text-5xl text-white mb-3">Seeking: Principal Architect</h2>
+                <p className="font-mono text-sm text-zinc-300 mb-8 border-b border-red-900 pb-4 leading-relaxed">
+                  We are consolidating a leadership bench of technologists who design, scale, and govern mission-critical platforms. If you have delivered complex systems and stewarded high-performing teams, we want to hear from you.
                 </p>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                   <div>
-                    <h4 className="text-red-500 font-bold text-xs uppercase tracking-widest mb-4">The Profile</h4>
+                    <h4 className="text-red-500 font-bold text-xs uppercase tracking-widest mb-4">Profile</h4>
                     <p className="text-zinc-400 text-sm leading-relaxed font-light">
-                      We are hunting for a <strong className="text-white">Polymath</strong>. Someone whose cognitive architecture processes full-stack systems as a single organism. We need an obsession with perfection that borders on pathology. If you have to ask if you are qualified, you are not.
+                      Strategic operator with mastery across architecture, delivery, and governance. Demonstrated ability to translate business objectives into resilient, scalable technology programs and to mentor senior engineers.
                     </p>
                   </div>
                   <div>
-                    <h4 className="text-red-500 font-bold text-xs uppercase tracking-widest mb-4">The Toolkit</h4>
+                    <h4 className="text-red-500 font-bold text-xs uppercase tracking-widest mb-4">Expertise</h4>
                     <ul className="text-zinc-400 text-xs font-mono space-y-2">
-                      <li>&gt; Rust / Go / C++ (System Level)</li>
-                      <li>&gt; WebAssembly (WASM) / WebGPU</li>
-                      <li>&gt; Distributed Systems (Kubernetes at scale)</li>
-                      <li>&gt; Cryptographic Primitives / ZK-Snarks</li>
-                      <li>&gt; Neural Network Architecture (PyTorch/JAX)</li>
+                      <li>&gt; Systems engineering (Rust / Go / C++)</li>
+                      <li>&gt; WebAssembly &amp; advanced runtime performance</li>
+                      <li>&gt; Distributed systems at scale (Kubernetes, service mesh)</li>
+                      <li>&gt; Applied cryptography and security architectures</li>
+                      <li>&gt; Modern ML stacks (PyTorch / JAX) and data platforms</li>
                     </ul>
                   </div>
                 </div>
 
                 <a href="mailto:recruitment@labxxx.io" className="block w-full py-5 bg-red-700 hover:bg-red-600 text-white font-mono text-sm font-bold uppercase tracking-[0.2em] text-center transition-all shadow-lg hover:shadow-red-900/50">
-                  Initiate Contact
+                  Submit Professional Profile
                 </a>
-                <p className="text-center text-zinc-600 text-[10px] font-mono mt-4 uppercase">
-                  Warning: Mediocrity will be filtered by the firewall.
+                <p className="text-center text-zinc-500 text-[10px] font-mono mt-4 uppercase">
+                  Confidentiality is maintained throughout the evaluation process.
                 </p>
               </div>
             )}
@@ -510,38 +510,33 @@ const App = () => {
       <section className="py-20 px-6 bg-[#050505] border-t border-zinc-800 relative overflow-hidden">
          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(220,38,38,0.03)_0%,_transparent_70%)]"></div>
          <div className="max-w-5xl mx-auto text-center relative z-10">
-            <div className="inline-flex items-center gap-2 text-red-500 border border-red-900/50 bg-red-900/10 px-4 py-1 rounded-full mb-6 animate-pulse">
+            <div className="inline-flex items-center gap-2 text-red-500 border border-red-900/50 bg-red-900/10 px-4 py-1 rounded-full mb-6">
                <AlertTriangle size={12} />
-               <span className="text-[10px] font-mono font-bold uppercase tracking-widest">Priority Transmission</span>
+               <span className="text-[10px] font-mono font-bold uppercase tracking-widest">Strategic Talent Brief</span>
             </div>
-            
-            <h2 className="font-serif text-4xl md:text-5xl text-white mb-6">OPEN PROTOCOL: ARCHITECT SEARCH</h2>
-            
+
+            <h2 className="font-serif text-4xl md:text-5xl text-white mb-6">Executive Search: Lead Architect</h2>
+
             <div className="max-w-3xl mx-auto text-zinc-400 font-mono text-sm leading-relaxed mb-10 space-y-4">
                <p>
-                  We are not looking for employees. We are seeking a <strong className="text-white">NEXUS NODE</strong>.
+                  We are assembling a disciplined architecture function to guide multi-market growth. The mandate is to design resilient platforms, ensure operational excellence, and partner with leadership on measurable outcomes.
                </p>
                <p>
-                  A singular intellect capable of bridging the gap between high-level 
-                  <span className="text-emerald-500"> Software Architecture</span>, 
-                  <span className="text-emerald-500"> Big Data Systems</span>, and 
-                  <span className="text-emerald-500"> Business Strategy</span>.
+                  Ideal candidates bring depth across <span className="text-emerald-500">software architecture</span>, <span className="text-emerald-500">data-intensive systems</span>, and <span className="text-emerald-500">product strategy</span>. Proven ability to deliver in regulated or high-availability environments is essential.
                </p>
                <p>
-                  You will operate within a high-frequency collective of <strong className="text-white">outstanding individuals with divergent worldviews</strong>.
-                  If you possess total mastery of modern stacks (Rust, WASM, Distributed Systems) 
-                  and the strategic vision to build empires, we are looking for you.
+                  If you drive clarity, steward teams through scale, and communicate with both executives and engineers, we would value a conversation.
                </p>
             </div>
 
             <div className="flex flex-wrap justify-center gap-8 mb-10 text-xs font-mono uppercase tracking-wider text-zinc-500">
                <span className="flex items-center gap-2"><Globe size={14} className="text-red-600" /> Remote / Global</span>
-               <span className="flex items-center gap-2"><Cpu size={14} className="text-red-600" /> Full-Stack Grandmaster</span>
-               <span className="flex items-center gap-2"><TrendingUp size={14} className="text-red-600" /> Business Logic</span>
+               <span className="flex items-center gap-2"><Cpu size={14} className="text-red-600" /> Systems Leadership</span>
+               <span className="flex items-center gap-2"><TrendingUp size={14} className="text-red-600" /> Business Alignment</span>
             </div>
 
             <button onClick={() => setJoinModalOpen(true)} className="px-10 py-4 border border-zinc-700 hover:border-red-600 hover:bg-red-600/10 text-white font-mono text-xs font-bold uppercase tracking-[0.2em] transition-all duration-300">
-               Initiate Contact Sequence
+               Open Executive Dialogue
             </button>
          </div>
       </section>
