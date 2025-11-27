@@ -383,26 +383,34 @@ const App = () => {
                 </div>
                 <h2 className="font-serif text-4xl md:text-5xl text-white mb-3">Seeking: Principal Architect</h2>
                 <p className="font-mono text-sm text-zinc-300 mb-8 border-b border-red-900 pb-4 leading-relaxed">
-                  We are consolidating a leadership bench of technologists who design, scale, and govern mission-critical platforms. If you have delivered complex systems and stewarded high-performing teams, we want to hear from you.
+                  We do not hire employees—we assimilate intellects. You will collaborate with outstanding individuals who bring a cosmopolitan worldview, and you will be expected to elevate the standard with disciplined delivery.
                 </p>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                   <div>
                     <h4 className="text-red-500 font-bold text-xs uppercase tracking-widest mb-4">Profile</h4>
                     <p className="text-zinc-400 text-sm leading-relaxed font-light">
-                      Strategic operator with mastery across architecture, delivery, and governance. Demonstrated ability to translate business objectives into resilient, scalable technology programs and to mentor senior engineers.
+                      Polymath builder with an obsession for precision and resilience. Comfortable translating board-level objectives into architecture, leading senior engineers, and navigating cross-market growth with cultural intelligence.
                     </p>
                   </div>
                   <div>
                     <h4 className="text-red-500 font-bold text-xs uppercase tracking-widest mb-4">Expertise</h4>
                     <ul className="text-zinc-400 text-xs font-mono space-y-2">
                       <li>&gt; Systems engineering (Rust / Go / C++)</li>
-                      <li>&gt; WebAssembly &amp; advanced runtime performance</li>
+                      <li>&gt; WebAssembly / WebGPU and runtime performance</li>
                       <li>&gt; Distributed systems at scale (Kubernetes, service mesh)</li>
-                      <li>&gt; Applied cryptography and security architectures</li>
-                      <li>&gt; Modern ML stacks (PyTorch / JAX) and data platforms</li>
+                      <li>&gt; Cryptographic primitives / ZK-Snarks and security architectures</li>
+                      <li>&gt; Neural network architecture (PyTorch / JAX) and data platforms</li>
+                      <li>&gt; Global product delivery with multi-market, multi-cultural teams</li>
                     </ul>
                   </div>
+                </div>
+
+                <div className="bg-zinc-900/60 border border-red-900/40 p-4 mb-6 text-left">
+                  <h4 className="text-red-500 font-bold text-[11px] uppercase tracking-widest mb-2">Engagement</h4>
+                  <p className="text-zinc-400 text-xs font-mono leading-relaxed">
+                    Operate within a high-frequency collective of exceptional peers. The mission: craft scalable infrastructures, align stakeholders across continents, and prove impact with disciplined metrics.
+                  </p>
                 </div>
 
                 <a href="mailto:recruitment@labxxx.io" className="block w-full py-5 bg-red-700 hover:bg-red-600 text-white font-mono text-sm font-bold uppercase tracking-[0.2em] text-center transition-all shadow-lg hover:shadow-red-900/50">
@@ -519,13 +527,13 @@ const App = () => {
 
             <div className="max-w-3xl mx-auto text-zinc-400 font-mono text-sm leading-relaxed mb-10 space-y-4">
                <p>
-                  We are assembling a disciplined architecture function to guide multi-market growth. The mandate is to design resilient platforms, ensure operational excellence, and partner with leadership on measurable outcomes.
+                  We are not looking for employees. We are engaging a <strong className="text-white">NEXUS NODE</strong>: someone with an obsession for excellence who can partner with outstanding individuals holding a truly international cosmovision.
                </p>
                <p>
-                  Ideal candidates bring depth across <span className="text-emerald-500">software architecture</span>, <span className="text-emerald-500">data-intensive systems</span>, and <span className="text-emerald-500">product strategy</span>. Proven ability to deliver in regulated or high-availability environments is essential.
+                  The mandate is to fuse <span className="text-emerald-500">software architecture</span>, <span className="text-emerald-500">data-intensive systems</span>, and <span className="text-emerald-500">business strategy</span> into a single operating model. You will architect resilient platforms, steer governance, and translate executive objectives into actionable programs.
                </p>
                <p>
-                  If you drive clarity, steward teams through scale, and communicate with both executives and engineers, we would value a conversation.
+                  If you are a polymath who thrives in high-frequency collaboration and can align global teams toward measurable impact, we want to meet you.
                </p>
             </div>
 
@@ -536,7 +544,7 @@ const App = () => {
             </div>
 
             <button onClick={() => setJoinModalOpen(true)} className="px-10 py-4 border border-zinc-700 hover:border-red-600 hover:bg-red-600/10 text-white font-mono text-xs font-bold uppercase tracking-[0.2em] transition-all duration-300">
-               Open Executive Dialogue
+               Coordinate Executive Conversation
             </button>
          </div>
       </section>
