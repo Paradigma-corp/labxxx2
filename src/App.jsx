@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import { 
-  Sun, Moon, MoveRight, 
-  Scale, Scroll, LayoutGrid, Users, 
+import {
+  MoveRight,
+  Scale, Scroll, LayoutGrid, Users,
   ArrowUpRight, Sparkles, MapPin, 
   Terminal, Activity, Hexagon, Asterisk,
   Lock, CheckCircle, Loader2, X,
@@ -96,7 +96,7 @@ const NoiseOverlay = () => (
   </div>
 )
 
-const StarryBackground = ({ theme }) => {
+const StarryBackground = () => {
   const canvasRef = React.useRef(null)
 
   useEffect(() => {
@@ -168,7 +168,7 @@ const StarryBackground = ({ theme }) => {
       window.removeEventListener('resize', resize)
       cancelAnimationFrame(animationFrameId)
     }
-  }, [theme])
+  }, [])
 
   return <canvas ref={canvasRef} className="absolute inset-0 w-full h-full pointer-events-none z-0" />
 }
@@ -221,7 +221,6 @@ const CityClock = ({ name, full, zone }) => {
 /* -------------------------------------------------------------------------- */
 
 const App = () => {
-  const [theme, setTheme] = useState('dark')
   const [scrolled, setScrolled] = useState(false)
   
   // Data States
@@ -240,12 +239,9 @@ const App = () => {
   const [formData, setFormData] = useState({ name: '', company: '', role: '' })
 
   useEffect(() => {
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    }
-  }, [theme])
+    document.documentElement.classList.add('dark')
+    return () => document.documentElement.classList.remove('dark')
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
@@ -286,7 +282,7 @@ const App = () => {
   }
 
   return (
-    <div className={`relative min-h-screen transition-colors duration-500 font-sans selection:bg-red-500/30 ${theme === 'dark' ? 'bg-[#050505] text-zinc-100' : 'bg-[#f4f4f5] text-zinc-900'}`}>
+    <div className="relative min-h-screen transition-colors duration-500 font-sans selection:bg-red-500/30 bg-[#050505] text-zinc-100">
       
       <NoiseOverlay />
 
@@ -451,11 +447,6 @@ const App = () => {
             <a href="#journal" className="hover:text-red-600 transition-colors">[ {t.nav.journal} ]</a>
           </div>
 
-          <div className="flex items-center gap-6">
-            <button onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')} className="text-zinc-500 hover:text-red-600 transition-colors">
-              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
-          </div>
         </div>
       </nav>
 
@@ -629,7 +620,7 @@ const App = () => {
             <div className="absolute inset-0 bg-[#050505]/80"></div>
          </div>
          <div className="absolute inset-0 z-10 opacity-30">
-            <StarryBackground theme="dark" />
+            <StarryBackground />
          </div>
          <div className="relative z-20 max-w-6xl w-full mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
             <div className="md:col-span-5 bg-black border border-zinc-800 p-8 shadow-2xl relative">
