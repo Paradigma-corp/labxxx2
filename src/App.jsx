@@ -511,7 +511,7 @@ const App = () => {
                  </span>
               </div>
 
-              <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl leading-[0.85] text-zinc-900 dark:text-zinc-100 uppercase mb-8 animate-glow">
+              <h1 className="font-serif text-6xl md:text-8xl lg:text-9xl leading-[0.85] text-zinc-900 dark:text-zinc-100 uppercase mb-8">
                  {t.hero.title} <br/>
                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-700 to-emerald-500 dark:from-emerald-400 dark:to-emerald-600 italic font-black ml-4 drop-shadow-[0_0_25px_rgba(16,185,129,0.35)]">
                     {t.hero.titleHigh}
