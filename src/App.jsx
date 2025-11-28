@@ -339,35 +339,38 @@ const App = () => {
             {/* --- ACCESS MODAL CONTENT --- */}
             {accessModalOpen && (
               <div className="p-8 border border-red-600/30">
-                <div className="flex items-center gap-2 text-red-600 font-mono text-xs uppercase tracking-widest mb-8">
-                  <Lock size={14} /> <span>Restricted_Access // Codex_Gate</span>
+                <div className="flex items-center gap-2 text-red-400 font-mono text-xs uppercase tracking-widest mb-8">
+                  <Lock size={14} /> <span>Project_Intake // Welcome</span>
                 </div>
                 {accessStep === 'form' && (
                   <form onSubmit={handleAccessSubmit} className="space-y-6">
-                    <p className="font-mono text-xs text-zinc-400 mb-6">// Identify yourself to request access to classified Codex documents.</p>
+                    <p className="font-mono text-xs text-zinc-300 mb-6">// Share your details and we'll acknowledge your project request immediately.</p>
                     <div className="space-y-4">
-                      {['Identity_Name', 'Entity_Corp', 'Clearance_Role'].map((label, i) => (
+                      {[{ label: 'Identity_Name', placeholder: 'Your name' }, { label: 'Entity_Corp', placeholder: 'Company' }, { label: 'Engagement_Role', placeholder: 'Role / Responsibility' }].map((field, i) => (
                         <div className="group" key={i}>
-                          <label className="block font-mono text-[10px] text-red-600 uppercase mb-2">{label}</label>
-                          <input required type="text" className="w-full bg-zinc-900 border border-zinc-800 p-3 text-zinc-200 font-mono text-sm focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-600 transition-all" placeholder="..." />
+                          <label className="block font-mono text-[10px] text-red-500 uppercase mb-2">{field.label}</label>
+                          <input required type="text" className="w-full bg-zinc-900 border border-zinc-800 p-3 text-zinc-200 font-mono text-sm focus:border-red-600 focus:outline-none focus:ring-1 focus:ring-red-600 transition-all" placeholder={field.placeholder} />
                         </div>
                       ))}
                     </div>
-                    <button type="submit" className="w-full py-4 bg-red-700 hover:bg-red-600 text-white font-mono text-xs font-bold uppercase tracking-widest transition-colors mt-4">Submit Credentials</button>
+                    <button type="submit" className="w-full py-4 bg-red-700 hover:bg-red-600 text-white font-mono text-xs font-bold uppercase tracking-widest transition-colors mt-4">Submit Request</button>
                   </form>
                 )}
                 {accessStep === 'processing' && (
                   <div className="text-center py-12">
-                    <Loader2 size={40} className="text-red-600 animate-spin mx-auto mb-6" />
-                    <p className="font-mono text-xs text-zinc-400 animate-pulse">Verifying Clearance Level...</p>
+                    <Loader2 size={40} className="text-red-500 animate-spin mx-auto mb-6" />
+                    <p className="font-mono text-xs text-zinc-300 animate-pulse">Routing your request to an engagement lead...</p>
                   </div>
                 )}
                 {accessStep === 'success' && (
-                  <div className="text-center py-8">
+                  <div className="text-center py-10">
                     <div className="w-16 h-16 bg-zinc-900 rounded-full flex items-center justify-center mx-auto mb-6 border border-zinc-700"><CheckCircle size={32} className="text-emerald-500" /></div>
-                    <h3 className="font-serif text-2xl text-white mb-2">Request Received</h3>
-                    <p className="font-mono text-xs text-zinc-400 mb-8 leading-relaxed">Your credentials have been logged. <br/><span className="text-red-500">Status: PENDING EVALUATION</span></p>
-                    <button onClick={closeAllModals} className="px-8 py-3 border border-zinc-700 hover:border-red-600 text-zinc-300 hover:text-white font-mono text-[10px] uppercase tracking-widest transition-all">Terminate Session</button>
+                    <h3 className="font-serif text-2xl text-white mb-2">Request Accepted</h3>
+                    <p className="font-mono text-xs text-zinc-300 mb-8 leading-relaxed">
+                      Your project intake has been acknowledged. A lead architect will respond via secure comms within hours.<br/>
+                      <span className="text-emerald-500">Status: CONFIRMED & SCHEDULED</span>
+                    </p>
+                    <button onClick={closeAllModals} className="px-8 py-3 border border-zinc-700 hover:border-red-600 text-zinc-200 hover:text-white font-mono text-[10px] uppercase tracking-widest transition-all">Close</button>
                   </div>
                 )}
               </div>
